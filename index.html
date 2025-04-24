@@ -1,37 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#2d89ef"/>
   <title>The Zanmar</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="animated-bg"></div>
-  <header>
-    <h1 class="typing-title"><span id="typed-text"></span><span class="cursor">|</span></h1>
-  </header>
-  <main>
-    <h2>Select Your Standard</h2>
-    <div class="cards">
-      <a href="standard.html?standard=9" class="bouncy-btn">9th</a>
-      <a href="standard.html?standard=10" class="bouncy-btn">10th</a>
-      <a href="standard.html?standard=11" class="bouncy-btn">11th</a>
-      <a href="standard.html?standard=12" class="bouncy-btn">12th</a>
-    </div>
-  </main>
+  <h1>Welcome to The Zanmar</h1>
+  <p>This is your educational app — now installable!</p>
   <script>
-    const text = "Welcome to The Zanmar";
-    let index = 0;
-
-    function type() {
-      if (index < text.length) {
-        document.getElementById("typed-text").textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 100);
-      }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker registered!'));
     }
-
-    window.onload = type;
   </script>
 </body>
 </html>
