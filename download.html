@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download - The Zanmar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Download Materials</h1>
+  </header>
+  <main>
+    <div id="info"></div>
+
+    <div id="spinner" style="display: none;">
+      <div class="loader"></div>
+      <p>Preparing your download...</p>
+    </div>
+
+    <div id="downloads">
+      <h2>Select Type</h2>
+      <ul>
+        <li><a href="#" id="link1">1 Mark</a></li>
+        <li><a href="#" id="link3">3 Mark</a></li>
+        <li><a href="#" id="link5">5 Mark</a></li>
+        <li><a href="#" id="link10">10 Mark</a></li>
+      </ul>
+    </div>
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const standard = params.get('standard');
+    const medium = params.get('medium');
+    const subject = params.get('subject');
+    document.getElementById("info").innerText = `${standard} Std | ${medium} Medium | ${subject}`;
+
+    const basePath = `downloads/${standard}/${medium}/${subject}`;
+
+    function setupLink(id, type) {
+      const link = document.getElementById(id);
+      link.href = `${basePath}/${type}.pdf`;
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("downloads").style.display = "none";
+        document.getElementById("spinner").style.display = "block";
+        setTimeout(() => {
+          window.location.href = link.href;
+          document.getElementById("spinner").style.display = "none";
+          document.getElementById("downloads").style.display = "block";
+        }, 1500);
+      });
+    }
+
+    setupLink("link1", "1mark");
+    setupLink("link3", "3mark");
+    setupLink("link5", "5mark");
+    setupLink("link10", "10mark");
+  </script>
+</body>
+</html>

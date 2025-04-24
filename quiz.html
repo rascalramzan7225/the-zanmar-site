@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz - The Zanmar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Mini Quiz</h1>
+  </header>
+  <main>
+    <form id="quiz-form">
+      <h2>1. What is the capital of Tamil Nadu?</h2>
+      <input type="radio" name="q1" value="chennai"> Chennai<br>
+      <input type="radio" name="q1" value="madurai"> Madurai<br>
+      <input type="radio" name="q1" value="coimbatore"> Coimbatore<br><br>
+
+      <h2>2. H2O is the chemical formula of?</h2>
+      <input type="radio" name="q2" value="water"> Water<br>
+      <input type="radio" name="q2" value="oxygen"> Oxygen<br>
+      <input type="radio" name="q2" value="hydrogen"> Hydrogen<br><br>
+
+      <h2>3. 5 + 3 = ?</h2>
+      <input type="radio" name="q3" value="8"> 8<br>
+      <input type="radio" name="q3" value="7"> 7<br>
+      <input type="radio" name="q3" value="6"> 6<br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="result" style="margin-top:20px; font-size: 18px;"></div>
+  </main>
+  <script>
+    document.getElementById('quiz-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === "chennai") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "water") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "8") score++;
+
+      document.getElementById('result').innerText = "You got " + score + " out of 3 correct!";
+    });
+  </script>
+</body>
+</html>

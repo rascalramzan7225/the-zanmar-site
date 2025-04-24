@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subjects - Zenmar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="page-title"></h1>
+  </header>
+  <main>
+    <div id="medium-section">
+      <h2>Select Medium</h2>
+      <div class="cards">
+        <a href="#" onclick="loadSubjects('English')">English Medium</a>
+        <a href="#" onclick="loadSubjects('Tamil')">Tamil Medium</a>
+      </div>
+    </div>
+    <div id="subject-section" style="display:none;">
+      <h2>Select Subject</h2>
+      <div class="cards" id="subjects-list"></div>
+    </div>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>
